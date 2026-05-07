@@ -1,7 +1,23 @@
 import EventCard from '../components/EventCard';
 import { Link } from 'react-router-dom';
+import { useState ,useEffect} from 'react';
+import axios from 'axios'
 
-const Home = ({ events }) => {
+
+const Home = () => {
+const [events ,setEvents]= useState([]);
+useEffect(()=>{
+   const getEvents =async()=>{
+    try{
+      const res= await axios.get('http://localhost:3000/api/getEvents')
+      setEvents(res.data);
+    }catch(error){
+       console.log(error)
+    }
+   }
+   getEvents()
+},[])
+
   return (
     <div className="space-y-20 py-12">
       <header className="text-center space-y-6 max-w-3xl mx-auto">

@@ -34,7 +34,7 @@ function App() {
       <Navbar />
       <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <Routes>
-          <Route path="/" element={<Home events={events} />} />
+          <Route path="/" element={<Home />} />
           <Route path="/add-event" element={<CreateEvent addEvent={addEvent} />} />
           <Route path="/event/:id" element={<EventDetails events={events} />} />
         </Routes>

@@ -12,4 +12,13 @@ const CreateEvent=async(req,res)=>{
     }
 
 }
-module.exports={CreateEvent}
+const getEvents=async(req,res)=>{
+    try{
+        const Events = await EventDb.find()
+        res.status(200).json(Events)
+    }catch(error){
+       res.status(400).json(error)
+    }
+
+}
+module.exports={CreateEvent,getEvents}
