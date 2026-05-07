@@ -73,19 +73,28 @@ const CreateEvent = ({ addEvent }) => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    
     const eventToSubmit = {
       ...formData,
       image: formData.image || 'https://via.placeholder.com/400x200?text=Event'
     };
+
+   
     addEvent(eventToSubmit);
-    navigate('/');
-    try{
-     const res=await axios.post('http://localhost:3000/api/event',eventToSubmit)
-     console.log(res)
-     alert(res.respons.data.message)
-    }catch(error){
-      alert(error)
-      console.log(error)
+    
+    try {
+      const res = await axios.post('http://localhost:3000/api/event', eventToSubmit);
+      console.log("Success:", res.data);
+      alert(res.data.message || "Événement créé avec succès !");
+      navigate('/'); 
+    } catch (error) {
+      console.error("Axios Error:", error);
+     
+      if (error.response) {
+        alert(`Erreur: ${error.response.data.message}`);
+      } else {
+        alert("Impossible de contacter le serveur.");
+      }
     }
   };
 
