@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-
+import axios from 'axios'
 const CreateEvent = ({ addEvent }) => {
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
@@ -71,7 +71,7 @@ const CreateEvent = ({ addEvent }) => {
     handleFile(file);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     const eventToSubmit = {
       ...formData,
@@ -79,6 +79,14 @@ const CreateEvent = ({ addEvent }) => {
     };
     addEvent(eventToSubmit);
     navigate('/');
+    try{
+     const res=await axios.post('http://localhost:3000/api/event',eventToSubmit)
+     console.log(res)
+     alert(res.respons.data.message)
+    }catch(error){
+      alert(error)
+      console.log(error)
+    }
   };
 
   return (
