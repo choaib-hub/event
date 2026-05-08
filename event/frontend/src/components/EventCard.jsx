@@ -46,7 +46,7 @@ const EventCard = ({ event }) => {
             </span>
           </div>
           <Link 
-            to={`/event/${event.id}`} 
+            to={`/event/${event._id || event.id}`}
             className="text-xs font-semibold text-indigo-400 hover:text-indigo-300 transition-colors duration-300 flex items-center gap-1"
           >
             Détails

@@ -2,7 +2,8 @@ import { useParams, Link } from 'react-router-dom';
 
 const EventDetails = ({ events }) => {
   const { id } = useParams();
-  const event = events.find(e => e.id === parseInt(id));
+ 
+const event = events.find(e => String(e._id || e.id) === String(id));
 
   if (!event) {
     return (

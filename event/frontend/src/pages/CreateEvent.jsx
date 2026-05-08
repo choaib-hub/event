@@ -208,7 +208,7 @@ const CreateEvent = ({ addEvent }) => {
                     </div>
                   )}
 
-                  {/* Progress Bar */}
+                  
                   {uploadProgress > 0 && uploadProgress < 100 && (
                     <div className="absolute bottom-0 left-0 w-full h-1 bg-slate-800 overflow-hidden rounded-b-2xl">
                       <div 
