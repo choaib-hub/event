@@ -37,7 +37,7 @@ const Home = ({events}) => {
           </div>
         </div>
 
-        {events.length === 0 ? (
+        {events?.length === 0 ? (
           <div className="bg-slate-900/40 backdrop-blur-xl border border-slate-800/50 rounded-3xl transition-all duration-500 hover:border-indigo-500/30 hover:bg-slate-900/60 shadow-2xl shadow-black/20 p-20 text-center space-y-6">
             <div className="w-20 h-20 bg-slate-800/50 rounded-3xl flex items-center justify-center mx-auto text-3xl">✨</div>
             <div className="space-y-2">
@@ -50,7 +50,7 @@ const Home = ({events}) => {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {events.map((event) => (
+            {events?.map((event) => (
               <EventCard key={event.id} event={event} />
             ))}
           </div>
