@@ -1,50 +1,48 @@
-import { Link, useLocation } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
-  const location = useLocation();
-
+export default function MyNavbar() {
   return (
-    <nav className="sticky top-0 z-50 bg-slate-950/60 backdrop-blur-md border-b border-slate-800/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          
-          
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
-            <span className="text-xl font-bold tracking-tight text-white">
-              Event<span className="text-indigo-500">ly</span>
-            </span>
-          </Link>
-
+    <nav className="bg-slate-950 border-b border-amber-50 px-5 py-4">
+      <div className="flex items-center justify-between">
+        
       
-          <div className="flex items-center gap-8">
-            <Link 
-              to="/" 
-              className={`text-sm font-medium transition-colors duration-300 ${
-                location.pathname === '/' 
-                ? 'text-white' 
-                : 'text-slate-400 hover:text-white'
-              }`}
+        <Link to="/" className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-indigo-600 rounded-md flex items-center justify-center">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              strokeWidth="3"
             >
-              Parcourir
-            </Link>
-
-            <Link 
-              to="/add-event" 
-              className="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2 px-6 rounded-2xl transition-all duration-300 shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 active:scale-[0.98] flex items-center justify-center gap-2 text-sm"
-            >
-              Créer un Événement
-            </Link>
+              <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
           </div>
 
+          <span className="text-white font-bold text-lg">
+            Evently
+          </span>
+        </Link>
+
+        
+        <div className="flex items-center gap-5">
+          <Link
+            to="/"
+            className="text-white text-sm hover:text-indigo-400 "
+          >
+            Parcourir
+          </Link>
+
+          <Link
+            to="/add-event"
+            className="bg-indigo-600 hover:bg-indigo-700  text-white px-4 py-2 rounded-4xl text-sm font-semibold "
+          >
+            + New Event
+          </Link>
         </div>
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}

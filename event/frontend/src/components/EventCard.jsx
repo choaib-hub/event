@@ -2,52 +2,52 @@ import { Link } from 'react-router-dom';
 
 const EventCard = ({ event }) => {
   return (
-    <div className="bg-slate-900/40 backdrop-blur-xl border border-slate-800/50 rounded-3xl transition-all duration-500 hover:border-indigo-500/30 hover:bg-slate-900/60 shadow-2xl shadow-black/20 group flex flex-col h-full overflow-hidden">
+    <div className="bg-gray-900 rounded-3xl   hover:border-indigo-500/30 shadow-2xl shadow-black/20 group flex flex-col  overflow-hidden">
       <div className="relative aspect-[16/10] overflow-hidden">
         <img 
           src={event.image} 
           alt={event.title} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-full"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60"></div>
+        
         <div className="absolute top-4 left-4">
-          <div className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-semibold text-white uppercase tracking-wider">
+          <div className="px-3 py-1 bg-blue-300   rounded-full text-[10px]  text-white  ">
             {new Date(event.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
           </div>
         </div>
       </div>
       
-      <div className="p-6 flex flex-col flex-grow">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">
+      <div className="p-6">
+        <div className="flex items-center gap-2 ">
+          <span className="text-[10px] font-bold  uppercase ">
             {event.location.split(',')[0]}
           </span>
           <div className="w-1 h-1 rounded-full bg-slate-700"></div>
-          <span className="text-[10px] font-medium text-slate-500 uppercase tracking-widest">
+          <span className="text-[10px] uppercase ">
             À la une
           </span>
         </div>
 
-        <h3 className="text-lg font-semibold text-white mb-2 line-clamp-1 group-hover:text-indigo-400 transition-colors duration-300">
+        <h3 className="text-lg font-semibold text-white mb-2  group-hover:text-indigo-400 ">
           {event.title}
         </h3>
         
-        <p className="text-slate-400 text-sm mb-6 line-clamp-2 leading-relaxed flex-grow">
+        <p className="text-slate-400  mb-6 line-clamp-2">
           {event.description}
         </p>
 
-        <div className="flex items-center justify-between pt-4 border-t border-slate-800/50 mt-auto">
+        <div className="flex items-center justify-between pt-4 border-t">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-xs">
+            <div className="w-8 h-8 rounded-full bg-blue-950 flex items-center justify-center ">
               📍
             </div>
-            <span className="text-xs font-medium text-slate-400">
+            <span className="font-medium text-slate-400">
               {event.location}
             </span>
           </div>
           <Link 
             to={`/event/${event._id || event.id}`}
-            className="text-xs font-semibold text-indigo-400 hover:text-indigo-300 transition-colors duration-300 flex items-center gap-1"
+            className="text-xs font-bold text-indigo-400 hover:text-amber-50   flex items-center gap-1"
           >
             Détails
             <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
